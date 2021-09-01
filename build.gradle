@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id "com.github.johnrengelman.shadow" version "6.1.0"
+}
+
+group 'org.minejam'
+version '0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.spongepowered.org/maven' }
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation 'com.github.Minestom:Minestom:2c0cd4ff7a'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': "org.minejam.Entrypoint",
+                "Multi-Release": true
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
